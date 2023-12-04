@@ -1,8 +1,12 @@
-function numPY(s){
-  return s.match(/p/ig).length == s.match(/y/ig).length
+function solution(s){
+    if (s.split(/p/gi).length-1 == s.split(/y/gi).length-1)
+    {
+     return true;
+    }
+    else
+    {
+     return false;   
+    }
 }
-
-
-// 아래는 테스트로 출력해 보기 위한 코드입니다.
-console.log( numPY("pPoooyY") )
-console.log( numPY("Pyy") )
+console.log( numPY("pPoooyY"));
+console.log( numPY("Pyy"));
