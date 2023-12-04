@@ -14,6 +14,6 @@
  * ex) git commit -m "프로그래머스 25번 문제"
  *
  * [commit한 내용을 github에 업로드하는 명령어]
- * $ git push origial main
+ * $ git push origin main
  */
 ```
