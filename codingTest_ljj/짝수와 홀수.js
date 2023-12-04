@@ -1,10 +1,5 @@
 function solution(num) {
-    if(num%2==0){
-        var answer = 'Even';
-    }
-    else if(num%2 ==1) {
-        var answer = 'Odd';
-    }
+    const answer = num % 2 ===0 ? "Even" : "Odd"
     return answer;
 }
 console.log(solution(3));
