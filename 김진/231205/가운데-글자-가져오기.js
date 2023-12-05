@@ -1,10 +1,3 @@
-1;
-2;
-3;
-4;
-5;
-6;
-7;
 function solution(s) {
   if (s.length % 2 !== 0) {
     return s[Math.floor(s.length / 2)];
