@@ -13,6 +13,5 @@ function solution(s) {
      if (amountp != amounty) {
         answer = false;
     }
-
     return answer;
 }
