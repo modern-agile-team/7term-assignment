@@ -36,6 +36,6 @@ function solution(lottos, win_nums) {
         key = 7 - key; //1~5등
         answer.push(key);
     }
-    
+    //dd
     return answer
 }

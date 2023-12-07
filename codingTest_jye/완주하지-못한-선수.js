@@ -40,3 +40,4 @@ function solution(participant, completion) {
 
 //알고리즘 자체는 좋았으나, 10만명을 비교하기엔 매우매우 비효율적인 코드임.
 //효율성 테스트 탈락
+//dd
