@@ -20,5 +20,5 @@ function solution(array, commands) {
     }
     //최종적으로 answer에 들어간 값들을 반환해준다.
     return answer;
-}
+}//pr
 

@@ -21,4 +21,4 @@ function solution(n) {
         answer += Number(n[i]);
     }
     return answer;
-}
+}//pr
