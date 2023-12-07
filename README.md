@@ -26,3 +26,5 @@ ex) 안진우: 코딩테스트 1일차
 git push origin main(브랜치이름) 을 통해 깃허브 레포지터리로 변경사항 push
 pull request를 통해 base repository(fork뜬 원본 레포지터리)로 변경사향 병합요청
 ```
+
+//test
