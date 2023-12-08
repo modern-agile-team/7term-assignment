@@ -3,17 +3,17 @@
 //이렇게 하면 for문과 if문을 각각 하나만 사용하게됨 -> 리소스 줄임
 
 function solution(participant, completion) {
-    let answer = '';
-    
-    participant.sort();
-    completion.sort();
+  let answer = '';
 
-    for (let i = 0; i < participant.length; i++) {
-        if (participant[i] != completion[i]) {
-            answer = participant[i];
-            break;
-        }
+  participant.sort();
+  completion.sort();
+
+  for (let i = 0; i < participant.length; i++) {
+    if (participant[i] != completion[i]) {
+      answer = participant[i];
+      break;
     }
-    return answer;
+  }
+  return answer;
 }
 //dd
