@@ -16,34 +16,32 @@ function solution(lottos, win_nums) {
       ZeroCount++;
     }
   }
-  for(let i = 0; i<=1; i++){
-    if(ZeroCount + count == i)
-        Max=6;
-        if (count == 0) {
-            Min = 6;
-          }
-          if (count == 1) {
-            Min = 6;
-          }
-          if (count == 2) {
-            Min = 5;
-          }
-          if (count == 3) {
-            Min = 4;
-          }
-          if (count == 4) {
-            Min = 3;
-          }
-          if (count == 5) {
-            Min = 2;
-          }
-          if (count == 6) {
-            Min = 1;
-          }
-  for(let i = 2; i<=6; i++){
-    if(ZeroCount + count == i)
-    Max=7-i;
+  for (let i = 0; i <= 1; i++) {
+    if (ZeroCount + count == i) Max = 6;
     if (count == 0) {
+      Min = 6;
+    }
+    if (count == 1) {
+      Min = 6;
+    }
+    if (count == 2) {
+      Min = 5;
+    }
+    if (count == 3) {
+      Min = 4;
+    }
+    if (count == 4) {
+      Min = 3;
+    }
+    if (count == 5) {
+      Min = 2;
+    }
+    if (count == 6) {
+      Min = 1;
+    }
+    for (let i = 2; i <= 6; i++) {
+      if (ZeroCount + count == i) Max = 7 - i;
+      if (count == 0) {
         Min = 6;
       }
       if (count == 1) {
@@ -64,7 +62,8 @@ function solution(lottos, win_nums) {
       if (count == 6) {
         Min = 1;
       }
+    }
   }
-  }
+  answer = [Max, Min];
+  return answer;
 }
-  
