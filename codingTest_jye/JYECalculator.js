@@ -2,17 +2,21 @@
 
 function main() {
   let msg = document.getElementById("msg").value;
-  exit(msg);
-  msg = noSpacing(msg);
-  if (judgeError(msg)) {
-    alert("정상적인 형태로 작성해 주세요");
-    return 0;
+
+  if (exit(msg)) {
+  } else {
+    msg = noSpacing(msg);
+    if (judgeError(msg)) {
+      alert("정상적인 형태로 작성해 주세요");
+      return 0;
+    }
+
+    msg = toArray(msg);
+    msg = judge1(msg);
+    msg = judge2(msg);
+    document.getElementById("result").innerHTML = msg[0];
+    alert("메인함수 종료완료");
   }
-  msg = toArray(msg);
-  msg = judge1(msg);
-  msg = judge2(msg);
-  document.getElementById("result").innerHTML = msg[0];
-  alert("메인함수 종료완료");
 }
 
 //exit 누르면 구현 기능
@@ -21,6 +25,7 @@ function exit(msg) {
     if (confirm("정말로 종료하시겠습니까?")) {
       alert("종료됨 수고요");
       window.close();
+      return true;
     } else {
       alert("종료되지 않았습니다.");
     }
