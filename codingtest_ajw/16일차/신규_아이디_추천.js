@@ -3,9 +3,9 @@ function solution(new_id) {
     let step1 = /[A-Z]/g;  //대문자 찾기
     let step2 = /[^a-z0-9-_.]/g; //소문자, 숫자, 빼기, 밑줄, 마침표를 제외한 문자 제거
     let step3 = /\.+/g;  //마침표 2개 이상이면 1개로 고정
-    let step4_1 = /^[\.]/; //첫 번째 마침표 찾기
-    let step4_2And6 = /[\.]$/; //마지막 마침표 찾기
-    let step5 = /\s/;  //공백 찾기
+    let step4_1 = /^[\.]/g; //첫 번째 마침표 찾기
+    let step4_2And6 = /[\.]$/g; //마지막 마침표 찾기
+    let step5 = /\s/g;  //공백 찾기
     let step7 = /.$/g; //마지막 문자 찾기
     answer = new_id.toLowerCase(new_id.match(step1));  //1단계 모든 대문자를 소문자로 치환
     answer = answer.replace(step2, ''); //2단계 소문자, 숫자, 빼기, 밑줄, 마침표를 제외한 문자 제거
