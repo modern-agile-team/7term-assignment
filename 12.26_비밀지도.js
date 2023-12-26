@@ -1,5 +1,7 @@
 function solution(n, arr1, arr2) {
-    (arr3 = []), (arr4 = []), (arr5 = []);
+    let arr3 = [],
+        arr4 = [],
+        arr5 = [];
     for (let i = 0; i < n; i++) {
         arr4.push(arr1[i].toString(2).padStart(n, '0'));
         arr5.push(arr2[i].toString(2).padStart(n, '0'));
