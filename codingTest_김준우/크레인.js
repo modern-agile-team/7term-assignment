@@ -10,24 +10,24 @@
 // 사라진 인형의 개수를 return
 
 function solution(board, moves) {
-    let pick = [];
-    let answer = 0;
-    for (let i = 0; i < moves.length; i++) {
-      for (let j = 0; j < board.length; j++) {
-        if (board[j][moves[i] - 1] !== 0) {
-          pick.push(board[j][moves[i] - 1]);
-          board[j].splice(moves[i] - 1, 1, 0);
-          break;
-        }
+  let pick = [];
+  let answer = 0;
+  for (let i = 0; i < moves.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      if (board[j][moves[i] - 1] !== 0) {
+        pick.push(board[j][moves[i] - 1]);
+        board[j].splice(moves[i] - 1, 1, 0);
+        break;
       }
     }
-    for (let i = 0; i < pick.length; i++) {
-      if (pick[i] === pick[i + 1]) {
-        answer += 2;
-        pick.splice(i, 2);
-        i = -1;
-      }
-    }
-    return answer;
   }
-  
+  for (let i = 0; i < pick.length; i++) {
+    if (pick[i] === pick[i + 1]) {
+      answer += 2;
+      pick.splice(i, 2);
+      i = -1;
+    }
+  }
+
+  return answer;
+}
