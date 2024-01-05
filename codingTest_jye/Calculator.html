@@ -1,0 +1,48 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<center>
+<body>
+  <h2 style="color:yellow;background-color:Red;">조영은의 계산기</h2>
+  <hr>
+      <b>식을 적거라. (예시 : 1 + 2 | 종료 : exit).</b>
+      <p>소수점 둘째자리 까지 계산된단다..ㅎㅎ</p>
+      <p>
+    <form name = "calculator" action="JYECalculator.js">
+      <input type = text id = msg size = 30></p>
+      <p>
+        <input type = button value="전송" onclick="main()">
+        <input type = reset value = "정정">
+      <p>
+        <div id = "result">결과를 보여줄 창</div>
+      </p>
+      
+      <table>
+       
+<tr>
+  <td><input type = button value = "." onclick = "inputDot()"></td><td><input type = button value = "+" onclick = "inputAdd()"></td><td><input type = button value = "-" onclick = "inputSub()"></td>
+</tr>        
+<tr>
+  <td><input type = button value = "7" onclick = "input7()"></td><td><input type = button value = "8" onclick = "input8()"></td><td><input type = button value = "9" onclick = "input9()"></td>
+</tr>
+<tr>
+  <td><input type = button value = "4" onclick = "input4()"></td><td><input type = button value = "5" onclick = "input5()"></td><td><input type = button value = "6" onclick = "input6()"></td>
+</tr>
+<tr>
+  <td><input type = button value = "1" onclick = "input1()"></td><td><input type = button value = "2" onclick = "input2()"></td><td><input type = button value = "3" onclick = "input3()"></td>
+</tr>
+<tr>
+  <td><input type = button value = "0" onclick = "input0()"></td><td><input type = button value = "/" onclick = "inputDiv()"></td><td><input type = button value = "*" onclick = "inputMul()"></td>
+</tr>
+
+      </table>
+    </form>
+    <script src ="JYECalculator.js"></script>
+</body>
+</center>
+</html>

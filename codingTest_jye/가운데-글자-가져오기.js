@@ -1,9 +1,9 @@
 function solution(s) {
-  let answer = '';
+  let answer = "";
   let arr = [];
   let strLength = 0;
 
-  arr = s.split('');
+  arr = s.split("");
   strLength = s.length;
 
   if (strLength % 2 != 0) {
