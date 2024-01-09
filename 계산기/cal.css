@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+#leftImg {
+    float: left;
+}
+
+#rightImg {
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+#dksrud {
+    position: relative;
+    top: 0px;
+    left: -120px;
+    width: 100px;
+    height: 100px;
+}
+#play {
+    position: relative;
+    top: -12px;
+    left: 800px;
+    width: 250px;
+    height: 250px;
+}
+#whgdkdy {
+    position: relative;
+    top: 0px;
+    left: -250px;
+    width: 250px;
+    height: 250px;
+}
+div {
+    text-align: center;
+}
