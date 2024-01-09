@@ -4,7 +4,7 @@ function calculate() {
     exit();
   } else {
     let { Num, Str } = divide(input);
-    console.log(Num,",",Str);
+    console.log(Num, ",", Str);
     let first = order(Str);
     Num[0] = call(first, Num, Str);
     document.getElementById("result").innerText = Number(Num[0]).toFixed(2);
@@ -52,33 +52,25 @@ function call(first, Num, Str) {
   return Num[0];
 }
 function mulDiv(Num, Str, first, i) {
-  if (Str[i] === "*") {
-    multiply(Num, Str, first, i);
-  } else {
-    division(Num, Str, first, i);
+  switch (Str[i]) {
+    case "*":
+      Num[i] *= Num[i + 1];
+      break;
+    case "/":
+      Num[i] /= Num[i + 1];
+      break;
   }
+  del(Num, Str, i, first);
 }
 function pluMin(Num, Str, first, i) {
-  if (Str[i] === "+") {
-    plus(Num, Str, first, i);
-  } else {
-    minus(Num, Str, first, i);
+  switch (Str[i]) {
+    case "+":
+      Num[i] += Num[i + 1];
+      break;
+    case "-":
+      Num[i] -= Num[i + 1];
+      break;
   }
-}
-function plus(Num, Str, first, i) {
-  Num[i] = Num[i] + Num[i + 1];
-  del(Num, Str, i, first);
-}
-function minus(Num, Str, first, i) {
-  Num[i] = Num[i] - Num[i + 1];
-  del(Num, Str, i, first);
-}
-function multiply(Num, Str, first, i) {
-  Num[i] = Num[i] * Num[i + 1];
-  del(Num, Str, i, first);
-}
-function division(Num, Str, first, i) {
-  Num[i] = Num[i] / Num[i + 1];
   del(Num, Str, i, first);
 }
 function del(Num, Str, i, first) {
