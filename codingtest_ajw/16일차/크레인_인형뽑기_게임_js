@@ -1,0 +1,23 @@
+function solution(board, moves) {
+    let answer = 0;
+    let result = [];
+    for(let i = 0; i < moves.length; i++){
+        for(let j = 0; j < board.length; j++){
+            if(board[j][moves[i] - 1] > 0){  //크레인 위치 배열을 통해 크레인 위치에 인형이 있는지 검사
+                result.push(board[j][moves[i] - 1]); //인형이 있으면 result배열에 인형을 넣고
+                board[j][moves[i] - 1] = 0;    //그 값을 0으로 초기화
+                break; //인형을 찾았으니 break로 for문 탈출
+            }
+        }
+    }
+    for(let k = 0; k < moves.length; k++){ 
+    if(result[k] === result[k + 1] && result[k] !== undefined ){//바구니에 담아져있는 인형들의 중복값 확인  
+        if(result[k] !== 0){   //0은 인형이 없다는 뜻이기 때문에 예외처리
+        result.splice(k, 2);  //중복값 제거
+        k -= 2;  //제거하면 인덱스값이 앞으로 땡겨지기 때문에 k값 감소
+        answer += 2;  //중복이 확인되면 +2
+        }
+        }
+    }
+    return answer;
+} //채점 점수: 12점
