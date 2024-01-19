@@ -30,6 +30,7 @@ class UserStorage {
       });
     });
   }
+
   static async deleteDescription(description) {
     return new Promise((resolve, reject) => {
       const query = "DELETE FROM tdList WHERE id = ?";
@@ -40,6 +41,7 @@ class UserStorage {
       });
     });
   }
+
   static async updateDescription(description) {
     return new Promise((resolve, reject) => {
       // console.log("UserStorage.js의 updateDescription 실행");
@@ -53,6 +55,7 @@ class UserStorage {
       });
     });
   }
+
   static async checkbox(description) {
     return new Promise((resolve, reject) => {
       // console.log("UserStorage.js의 checkbox실행");

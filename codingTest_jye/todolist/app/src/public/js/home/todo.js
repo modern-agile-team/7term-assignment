@@ -17,12 +17,12 @@ fetch("/lists")
         if (result[i].is_check === 1) {
           const newP = document.createElement("p");
           newP.innerHTML = `<input type="checkbox" id = "${key}checkbox" onclick="checkbox(${key})" checked>
-        <span id="${key}span"style="text-decoration: line-through; color: #797979;">${result[i].description}</span><input type='button' value='fix' id="${key}fix" onclick='fix(${key})' style="display: none;"><input type='button' " value='delete' onclick='remove(this, ${key})'>`;
+        <span id="${key}span"style="text-decoration: line-through; color: #797979;">${result[i].description}</span><input type='button' class='fixButton' id="${key}fix" onclick='fix(${key})' style="display: none;"><input type='button' class ='deleteButton' onclick='remove(this, ${key})'>`;
           box.append(newP);
         } else {
           const newP = document.createElement("p");
           newP.innerHTML = `<input type="checkbox" id = "${key}checkbox" onclick="checkbox(${key})">
-        <span id="${key}span">${result[i].description}</span><input type='button' value='fix' id="${key}fix" onclick='fix(${key})'><input type='button' " value='delete' onclick='remove(this, ${key})'>`;
+        <span id="${key}span">${result[i].description}</span><input type='button' id="${key}fix" class='fixButton' onclick='fix(${key})'><input type='button' class ='deleteButton' onclick='remove(this, ${key})'>`;
           box.append(newP);
         }
       }
@@ -36,11 +36,11 @@ function add() {
   const newP = document.createElement("p");
 
   if (!input1) {
-    alert("좋은말로 할때 입력값을 입력하도록.");
+    alert("값을 입력해주세요");
     return 0;
   }
   newP.innerHTML = `<input type="checkbox" id = "${number}checkbox" onclick="checkbox(${number})">
-      <span id="${number}span">${input1}</span><input type='button' value='fix' id="${number}fix" onclick='fix(${number})'><input type='button'" value='delete' onclick='remove(this, ${number})'>`;
+      <span id="${number}span">${input1}</span><input type='button' class='fixButton' id="${number}fix" onclick='fix(${number})'><input type='button' class ='deleteButton' onclick='remove(this, ${number})'>`;
   box.appendChild(newP);
 
   const req = {
@@ -98,8 +98,10 @@ function fix(i) {
   span.parentNode.replaceChild(input, span);
   input.id = `${i}input`;
 
-  fix.value = "완료";
+  fix.setAttribute("class", `fixedButton`);
+
   fix.setAttribute("onclick", `fixed(${i})`);
+  input.focus();
   // const newString = `<input type="checkbox"><input type = "text" value="${string}" autofocus><input type='button' value='완료' onclick='fixed(${i})'><input type='button' value='삭제' onclick='remove(this)'>`;
   // document.getElementById(`${i}fix`) = newString.innerHTML;
 }
@@ -110,15 +112,15 @@ function fixed(i) {
   let fix = document.getElementById(`${i}fix`);
 
   if (!input.value) {
-    alert("입력값 입력하라고");
+    alert("수정할 값을 입력해주세요");
     return 0;
   }
 
   span.textContent = input.value;
   span.id = `${i}span`;
 
-  fix.value = "fix";
   fix.setAttribute("onclick", `fix(${i})`);
+  fix.setAttribute("class", `fixButton`);
 
   input.parentNode.replaceChild(span, input);
 
