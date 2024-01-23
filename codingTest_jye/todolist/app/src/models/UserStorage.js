@@ -1,19 +1,17 @@
 "use strict";
+import db from "../config/db.js";
 
-const db = require("../config/db");
-
-class UserStorage {
-  static async getDescription() {
+export default class UserStorage {
+  async getDescription() {
     return new Promise((resolve, reject) => {
       const query = "SELECT * FROM tdList";
       db.query(query, (err, data) => {
         if (err) {
-          reject(`${err}`);
-        } else {
-          // console.log("UserStorage.js의 동작");
-          // console.log(data);
-          resolve(data);
+          reject(err);
         }
+        // console.log("UserStorage.js의 동작");
+        // console.log(data);
+        resolve(data);
       });
     });
   }
@@ -25,8 +23,8 @@ class UserStorage {
       // console.log(description);
 
       db.query(query, [description.id, description.description], (err) => {
-        if (err) reject(`${err}`);
-        else resolve({ success: true });
+        if (err) reject(err);
+        resolve({ success: true });
       });
     });
   }
@@ -36,8 +34,8 @@ class UserStorage {
       const query = "DELETE FROM tdList WHERE id = ?";
 
       db.query(query, [description.id], (err) => {
-        if (err) reject(`${err}`);
-        else resolve({ success: true });
+        if (err) reject(err);
+        resolve({ success: true });
       });
     });
   }
@@ -50,8 +48,8 @@ class UserStorage {
       const query = "UPDATE tdList SET description = ? WHERE id = ?";
 
       db.query(query, [description.description, description.id], (err) => {
-        if (err) reject(`${err}`);
-        else resolve({ success: true });
+        if (err) reject(err);
+        resolve({ success: true });
       });
     });
   }
@@ -63,11 +61,9 @@ class UserStorage {
       const query = "UPDATE tdList SET is_check = ? WHERE id = ?";
 
       db.query(query, [description.isCheck, description.id], (err) => {
-        if (err) reject(`${err}`);
-        else resolve({ success: true });
+        if (err) reject(err);
+        resolve({ success: true });
       });
     });
   }
 }
-
-module.exports = UserStorage;

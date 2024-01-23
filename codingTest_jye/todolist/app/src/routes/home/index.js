@@ -1,8 +1,8 @@
 "use strict";
-const express = require("express");
-const router = express.Router();
+import express from "express";
+import ctrl from "./home.ctrl.js";
 
-const ctrl = require("./home.ctrl");
+const router = express.Router();
 
 //데이터 조회 GET
 router.get("/", ctrl.output.main);
@@ -18,4 +18,4 @@ router.patch("/checkboxes", ctrl.process.checkbox);
 //데이터 삭제 DELETE
 router.delete("/lines", ctrl.process.deleteDescription);
 
-module.exports = router;
+export default router;

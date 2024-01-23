@@ -1,8 +1,8 @@
 "use strict";
 
-const UserStorage = require("./UserStorage");
+import UserStorage from "./UserStorage.js";
 
-class User {
+export default class User {
   constructor(body) {
     this.body = body;
   }
@@ -34,9 +34,11 @@ class User {
   async updateDescription(data) {
     let key = await UserStorage.updateDescription(data);
     //반환값 안줘도 되는데 catch문 때문에 그냥 줌
+    console.log(data);
 
     return key;
   }
+
   async checkbox(data) {
     let key = await UserStorage.checkbox(data);
     //반환값 안줘도 되는데 catch문 때문에 그냥 줌
@@ -44,5 +46,3 @@ class User {
     return key;
   }
 }
-
-module.exports = User;

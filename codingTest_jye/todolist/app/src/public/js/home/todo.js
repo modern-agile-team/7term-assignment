@@ -1,12 +1,19 @@
 "use strict";
+// import {
+//   addFetch,
+//   removeFetch,
+//   fixedFetch,
+//   fixFetch,
+//   checkboxFetch,
+// } from "./fetch.js";
+
 //number의 값은 변동적이어야함.
 //무슨 뜻이냐면 데이터 베이스에서 최적화(여기서는 이전에 작업했던 번호들을 앞으로 땡겨주는 일을 말함)를 통해 마지막 번호를 받고
 //그 이후부터 number을 시작해주면 됨
 //사용자가 사이트를 나갈때 데이터베이스에 있는 데이터들을 앞쪽으로 땡겨주고 사용자가 들어올 때 이후의 번호부터 시작하면 됨.
 let number = 0;
-let obj1 = {};
 
-fetch("/lists")
+fetch("http://localhost:3000/lists")
   .then((response) => response.json())
   .then((result) => {
     console.log(result);
