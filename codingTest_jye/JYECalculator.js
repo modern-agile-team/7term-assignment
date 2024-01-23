@@ -4,6 +4,7 @@ function main() {
   let msg = document.getElementById("msg").value;
 
   if (exit(msg)) {
+    window.close();
   } else {
     msg = noSpacing(msg);
     if (judgeError(msg)) {
@@ -24,7 +25,6 @@ function exit(msg) {
   if (msg === "exit") {
     if (confirm("정말로 종료하시겠습니까?")) {
       alert("종료됨 수고요");
-      window.close();
       return true;
     } else {
       alert("종료되지 않았습니다.");

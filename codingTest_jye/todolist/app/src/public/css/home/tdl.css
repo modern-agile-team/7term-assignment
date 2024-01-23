@@ -1,0 +1,203 @@
+/*
+색상 정리
+#BDE3F2
+#77CFF2
+#41C0F2
+#0FB2F2
+#0D8BD9
+*/
+
+html {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+body {
+  width: 405px;
+  height: 154px;
+  margin: 0 auto;
+  background-color: #bde3f2;
+  padding: 0 20px 20px 20px;
+}
+legend {
+  width: 101.26px;
+  height: 24px;
+  font: bold;
+  top: 25px;
+  left: 22.06px;
+  padding-inline-start: 22px;
+  padding-top: 25px;
+}
+
+p:last-child {
+  margin-bottom: 20px;
+}
+
+div {
+  width: 405px;
+  height: auto;
+  background-color: #77cff2;
+  border-radius: 20px;
+  box-shadow: 0px 3px 8px 0px #0000003d;
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+
+#pinput {
+  left: 23.88px;
+  height: 30px;
+  margin-top: 8px;
+  margin: auto;
+  width: 360px;
+  border-bottom: 1px solid #0d8bd9;
+}
+
+p {
+  display: flex;
+  /* align-items: center; */
+  & > span {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: inherit;
+    max-width: 280px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    word-break: break-all;
+
+    /* text-overflow: ellipsis; */
+  }
+}
+
+/* 부모 노드인 p가 호버링된다면 자식 노드인 버튼도 같이 호버링 시켜준다. */
+p:hover > .deleteButton {
+  background-color: #0fb2f2;
+}
+
+p:hover > .fixButton {
+  background-color: #0fb2f2;
+}
+p:hover > .fixedButton {
+  background-color: #0fb2f2;
+}
+
+p > input[type="text"] {
+  background-color: #bde3f2;
+  width: 280px;
+  height: auto;
+  border: 0px;
+  padding: 0px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+p:not(#pinput) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #0d8bd9;
+  width: 360px; /* 밑줄 길이 조절 */
+  margin: 0 auto;
+}
+
+p:hover:not(#pinput) {
+  background-color: #0fb2f2;
+}
+
+#input {
+  outline: none;
+  background-color: #77cff2;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  width: 337px;
+  height: 21px;
+}
+
+#title {
+  color: #111111;
+}
+
+#addButton {
+  background-image: url(../../resource/add.png);
+  width: 21px;
+  height: 21px;
+  background-color: #77cff2;
+  background-size: cover;
+
+  border: 0px;
+}
+
+#addButton:hover {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+#addButton:active {
+  background-color: #0fb2f2;
+}
+
+.fixButton {
+  background-image: url(../../resource/fix.png);
+  width: 21px;
+  height: 21px;
+  background-size: cover;
+  background-color: #77cff2;
+  margin-left: auto;
+
+  border: 0px;
+}
+
+.fixButton:hover {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.fixedButton {
+  background-image: url(../../resource/complete.png);
+  width: 21px;
+  height: 21px;
+  background-size: cover;
+  background-color: #77cff2;
+  margin-left: 4px;
+
+  border: 0px;
+}
+
+.fixedButton:hover {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-image: url(../../resource/delete.png);
+  width: 21px;
+  height: 21px;
+  background-size: cover;
+  background-color: #77cff2;
+
+  border: 0px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  width: 25px;
+  height: 25px;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+legend {
+  font-weight: bold;
+}
