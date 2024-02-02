@@ -12,14 +12,16 @@ function consoleLog(el) {
   console.log(el);
 }
 
-function madeUl(dbId, dbTask, dbCheck, i) {
+function madeUl(dbId, dbTask, dbCheck) {
   const ul1 = document.createElement("ul");
   ul1.setAttribute("id", "ul");
 
   const input1 = document.createElement("input");
   input1.setAttribute("type", "checkbox");
-  input1.setAttribute("value", dbCheck);
   input1.setAttribute("id", `check${dbId}`);
+  if (dbCheck) {
+    input1.setAttribute("checked", "");
+  }
 
   const input2 = document.createElement("input");
   input2.setAttribute("type", "text");
@@ -39,12 +41,12 @@ function madeUl(dbId, dbTask, dbCheck, i) {
   document.querySelector("#taskList").append(ul1);
   ul1.append(input1, input2, button1, button2);
 
-  return (i = [
+  return [
     document.querySelector(`#check${dbId}`),
     document.querySelector(`#dataTask${dbId}`),
     document.querySelector(`#edit${dbId}`),
     document.querySelector(`#delete${dbId}`),
-  ]);
+  ];
 }
 
 function showList() {
@@ -58,22 +60,39 @@ function showList() {
     .then((res) => res.json())
     .then((res) => {
       for (let i = 0; i < res.length; i++) {
-        a.push(madeUl(res[i].id, res[i].task, res[i].finish, i));
+        a.push(madeUl(res[i].id, res[i].description, res[i].is_check));
       }
-    })
-    .then((res) => {
-      for (let j = 0; j < a.length; j++) {
-        for (let k = 0; k < a[j].length; k++) {
-          if (/[delete]+/gi.test(a[j][k])) {
-            a[j][k].addEventListener("click", deleteGo(a[j][k]));
-          }
-        }
-      }
+      jsGo(a);
     })
     .catch((err) => {
       console.error(new Error("리스트 불러오는 중 에러 발생"));
     });
 }
+
+function jsGo(a) {
+  a = [].concat(...a);
+
+  for (let i = 0; i < a.length; i++) {
+    var makeEventListener = function () {
+      var j = i;
+      return function () {
+        a[j].addEventListener("click", function () {
+          console.log(a[j].id);
+          console.log(/[delete]+/gi.test(a[j].id));
+          // if (/[delete]+/.test(`${a[j].id}`)) {
+          //   consoleLog(a[j]);
+          // }
+        });
+      };
+    };
+    var _eventListener = makeEventListener();
+    _eventListener();
+  }
+}
+
+// function FindFunction(element) {
+//   if (element)
+// }
 
 function plusAdd() {
   const req = {
@@ -130,7 +149,7 @@ function deleteGo(el) {
 
 function editGo(el) {
   const req = {
-    check: dataTask.value,
+    check: el.value,
     id: dataTask.id.replace("dataTask", ""),
   };
   fetch("/to-do-list-e", {
