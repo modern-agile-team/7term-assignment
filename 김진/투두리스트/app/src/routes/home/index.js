@@ -9,8 +9,10 @@ router.get("/", ctrl.output.home);
 router.get("/to-do-list", ctrl.output.toDoList);
 
 router.post("/to-do-list-c", ctrl.process.createToDoList);
-router.post("/to-do-list-d", ctrl.process.deleteToDoList);
-router.post("/to-do-list-e", ctrl.process.editToDoList);
-router.post("/to-do-list-c", ctrl.process.checkToDoList);
+
+router.delete("/to-do-list-d", ctrl.process.deleteToDoList);
+
+router.patch("/to-do-list-e", ctrl.process.editToDoList);
+router.patch("/to-do-list-c", ctrl.process.checkToDoList);
 
 module.exports = router;

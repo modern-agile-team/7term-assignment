@@ -77,11 +77,7 @@ function jsGo(a) {
       var j = i;
       return function () {
         a[j].addEventListener("click", function () {
-          console.log(a[j].id);
-          console.log(/[delete]+/gi.test(a[j].id));
-          // if (/[delete]+/.test(`${a[j].id}`)) {
-          //   consoleLog(a[j]);
-          // }
+          findFunction(a[j], a[j - 1]);
         });
       };
     };
@@ -90,9 +86,15 @@ function jsGo(a) {
   }
 }
 
-// function FindFunction(element) {
-//   if (element)
-// }
+function findFunction(element, element2) {
+  if (/delete+/gi.test(element.id)) {
+    deleteGo(element);
+  } else if (/check+/gi.test(element.id)) {
+    checkGo(element);
+  } else if (/edit+/gi.test(element.id)) {
+    editGo(element, element2);
+  }
+}
 
 function plusAdd() {
   const req = {
@@ -128,7 +130,7 @@ function deleteGo(el) {
     id: el.id.replace("delete", ""),
   };
   fetch("/to-do-list-d", {
-    method: "POST",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
@@ -147,13 +149,13 @@ function deleteGo(el) {
     });
 }
 
-function editGo(el) {
+function editGo(el, el2) {
   const req = {
-    check: el.value,
-    id: dataTask.id.replace("dataTask", ""),
+    taskInput: el2.value,
+    id: el.id.replace("edit", ""),
   };
   fetch("/to-do-list-e", {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
@@ -174,11 +176,10 @@ function editGo(el) {
 
 function checkGo(el) {
   const req = {
-    dataTask: check.value,
-    id: check.id.replace("check", ""),
+    id: el.id.replace("check", ""),
   };
   fetch("/to-do-list-c", {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },

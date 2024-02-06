@@ -21,8 +21,9 @@ function checkAgain(inputText) {
   }
 }
 
-function getArr(String) {
-  const equation = String.replace(/\+/g, "~+~")
+function getArr(string) {
+  const equation = string
+    .replace(/\+/g, "~+~")
     .replace(/\-/g, "~-~")
     .replace(/\*/g, "~*~")
     .replace(/\//g, "~/~")

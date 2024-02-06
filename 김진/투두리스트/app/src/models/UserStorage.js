@@ -23,10 +23,10 @@ class AddTask {
     });
   }
 
-  static async editCheck(client) {
+  static async editList(client) {
     return new Promise((resolve, reject) => {
       const query = "UPDATE tdListKj SET description = (?) WHERE id = (?)";
-      db.query(query, [client.taskInput], (err) => {
+      db.query(query, [client.taskInput, client.id], (err) => {
         if (err) reject(`${err}`);
         resolve({ success: true });
       });
@@ -43,20 +43,11 @@ class AddTask {
     });
   }
 
-  static async editList(client) {
-    return new Promise((resolve, reject) => {
-      const query = "UPDATE tdListKj SET description = (?) WHERE id = (?)";
-      db.query(query, [client.dataTask, client.id], (err) => {
-        if (err) reject(`${err}`);
-        resolve({ success: true });
-      });
-    });
-  }
-
   static async checkList(client) {
     return new Promise((resolve, reject) => {
-      const query = "UPDATE tdListKj SET is_check = (?) WHERE id = (?)";
-      db.query(query, [client.check, client.id], (err) => {
+      const query =
+        "UPDATE `tdListKj` SET `is_check` = CASE WHEN `is_check` = 0 THEN 1 ELSE 0 END WHERE `id` = (?)";
+      db.query(query, [client.id], (err) => {
         if (err) reject(`${err}`);
         resolve({ success: true });
       });
